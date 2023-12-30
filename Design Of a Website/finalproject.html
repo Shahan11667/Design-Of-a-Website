@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="finalproject.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+	
+<!--progress bar
+<div class="circle-wrap">
+  <div class="circle">
+<div class="mask half">
+    <div class="fill"></div>
+</div>
+<div class="mask full">
+   <div class="fill"></div>
+</div>
+<div class="inside-circle"> 75% </div>
+  </div>
+
+</div>
+-->
+
+<!-- clock on above -->
+ <section class="body20">
+		<div id="time">
+			<div class="circle" style="--clr:#ff2972;">
+				<div class="dots hr_dot"></div>
+				<svg>
+					<circle cx="70" cy="70" r="70"></circle>
+					<circle cx="70" cy="70" r="70" id="hh"></circle>
+				</svg>
+				<div id="hours">00</div>
+			</div>
+			<div class="circle" style="--clr:#fee800;">
+				<div class="dots min_dot"></div>
+				<svg>
+					<circle cx="70" cy="70" r="70"></circle>
+					<circle cx="70" cy="70" r="70" id="mm"></circle>
+				</svg>
+				<div id="minutes">00</div>
+			</div>
+			<div class="circle" style="--clr:#04fc43;">
+				<div class="dots sec_dot"></div>
+				<svg>
+					<circle cx="70" cy="70" r="70"></circle>
+					<circle cx="70" cy="70" r="70" id="ss"></circle>
+				</svg>
+				<div id="seconds">00</div>
+			</div>
+			<div class="ap"><div id="ampm">AM</div></div>
+		</div>
+	</section>
+
+		<script>
+			setInterval(() =>{
+			
+				let hours = document.getElementById('hours');
+				let minutes = document.getElementById('minutes');
+				let seconds = document.getElementById('seconds');
+				let ampm = document.getElementById('ampm');
+				let hh = document.getElementById('hh');
+				let mm = document.getElementById('mm');
+				let ss = document.getElementById('ss');
+				let hr_dot = document.querySelector('.hr_dot');
+				let min_dot = document.querySelector('.min_dot');
+				let sec_dot = document.querySelector('.sec_dot');
+
+
+
+				let h = new Date().getHours();
+				let m = new Date().getMinutes();
+				let s = new Date().getSeconds();
+
+				let am = h >= 12 ? "PM" : "AM";
+
+				// convert 24hr clock to 12hr clock
+				if (h > 12){
+					h = h - 12;
+				}
+
+				// add zero before single digit number
+				h = (h < 10) ? "0" + h : h
+				m = (m < 10) ? "0" + m : m
+				s = (s < 10) ? "0" + s : s
+
+				hours.innerHTML = h + "<br><span>Hours</span>";
+				minutes.innerHTML = m + "<br><span>Minutes</span>";
+				seconds.innerHTML = s + "<br><span>Seconds</span>";
+				ampm.innerHTML = am;
+
+				hh.style.strokeDashoffset = 440 - (440 * h) / 12;
+				// 12 hrs clock
+				mm.style.strokeDashoffset = 440 - (440 * m) / 60;
+				// 60 minutes
+				ss.style.strokeDashoffset = 440 - (440 * s) / 60;
+				// 60 seconds
+				
+				hr_dot.style.transform = `rotateZ(${h * 30}deg)`;
+				// 360 / 12hrs = 30
+				min_dot.style.transform = `rotateZ(${m * 6}deg)`;
+				// 360 / 60min = 6
+				sec_dot.style.transform = `rotateZ(${s * 6}deg)`;
+				// 360 / 60sec = 6
+			})
+		</script>
+
+<!-- navbar above -->
+<div class="black">
+
+	<div class="icon-black">
+
+	<i class="fa fa-facebook-f" style="font-size:24px;color:#ff355e;"></i>
+	<i class="fa fa-twitter-square" style="font-size:24px;color:#ff355e;"></i>
+	<i class="fa fa-google-plus-circle" style="font-size:24px;color:#ff355e; "></i>
+	<i class="fa fa-instagram" style="font-size:24px;color:#ff355e;"></i>
+    </div>
+    <div class="phone-portion">
+	<i class="fa fa-volume-control-phone" style="font-size:24px;color:green"> +92-354667748</i>
+     <i class="fa fa-volume-control-phone" style="font-size:24px;color:green"> +92-354667748</i>
+     <button>CALL ME</button>
+   </div>
+
+</div>
+
+<!--navbar section starts  -->
+ 
+<div class="navbar-parent">
+	<div class="navbar-child1"><i class="fa fa-apple" style="font-size:48px;color:silver;"></i></div>
+	<div class="navbar-child2 box-navbar">WHY US</div>
+	<div class="navbar-child3 box-navbar">CONTACT US</div>
+	<div class="navbar-child4 box-navbar">PORTFOILIO</div>
+	<div class="navbar-child5 box-navbar">SERVICES</div>
+	<div class="navbar-child6 box-navbar">PROCESS</div>
+	<div class="navbar-child7 box-navbar">REVIEW</div>
+	<div class="navbar-child8 box-navbar">OUR SKILSS</div>
+</div>
+<!-- after navbar photo -->
+<div class="hero">
+
+    <div class="snow">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMax slice">
+		    <g fill="#FFF" fill-opacity=".15" transform="translate(55 42)">
+			   <g id="snow-bottom-layer">
+				  <ellipse cx="6" cy="1009.5" rx="6" ry="5.5"/>
+				  <ellipse cx="138" cy="1110.5" rx="6" ry="5.5"/>
+				  <ellipse cx="398" cy="1055.5" rx="6" ry="5.5"/>
+				  <ellipse cx="719" cy="1284.5" rx="6" ry="5.5"/>
+				  <ellipse cx="760" cy="1155.5" rx="6" ry="5.5"/>
+				  <ellipse cx="635" cy="1459.5" rx="6" ry="5.5"/>
+				  <ellipse cx="478" cy="1335.5" rx="6" ry="5.5"/>
+				  <ellipse cx="322" cy="1414.5" rx="6" ry="5.5"/>
+				  <ellipse cx="247" cy="1234.5" rx="6" ry="5.5"/>
+				  <ellipse cx="154" cy="1425.5" rx="6" ry="5.5"/>
+				  <ellipse cx="731" cy="773.5" rx="6" ry="5.5"/>
+				  <ellipse cx="599" cy="874.5" rx="6" ry="5.5"/>
+				  <ellipse cx="339" cy="819.5" rx="6" ry="5.5"/>
+				  <ellipse cx="239" cy="1004.5" rx="6" ry="5.5"/>
+				  <ellipse cx="113" cy="863.5" rx="6" ry="5.5"/>
+				  <ellipse cx="102" cy="1223.5" rx="6" ry="5.5"/>
+				  <ellipse cx="395" cy="1155.5" rx="6" ry="5.5"/>
+				  <ellipse cx="826" cy="943.5" rx="6" ry="5.5"/>
+				  <ellipse cx="626" cy="1054.5" rx="6" ry="5.5"/>
+				  <ellipse cx="887" cy="1366.5" rx="6" ry="5.5"/>
+				  <ellipse cx="6" cy="241.5" rx="6" ry="5.5"/>
+				  <ellipse cx="138" cy="342.5" rx="6" ry="5.5"/>
+				  <ellipse cx="398" cy="287.5" rx="6" ry="5.5"/>
+				  <ellipse cx="719" cy="516.5" rx="6" ry="5.5"/>
+				  <ellipse cx="760" cy="387.5" rx="6" ry="5.5"/>
+				  <ellipse cx="635" cy="691.5" rx="6" ry="5.5"/>
+				  <ellipse cx="478" cy="567.5" rx="6" ry="5.5"/>
+				  <ellipse cx="322" cy="646.5" rx="6" ry="5.5"/>
+				  <ellipse cx="247" cy="466.5" rx="6" ry="5.5"/>
+				  <ellipse cx="154" cy="657.5" rx="6" ry="5.5"/>
+				  <ellipse cx="731" cy="5.5" rx="6" ry="5.5"/>
+				  <ellipse cx="599" cy="106.5" rx="6" ry="5.5"/>
+				  <ellipse cx="339" cy="51.5" rx="6" ry="5.5"/>
+				  <ellipse cx="239" cy="236.5" rx="6" ry="5.5"/>
+				  <ellipse cx="113" cy="95.5" rx="6" ry="5.5"/>
+				  <ellipse cx="102" cy="455.5" rx="6" ry="5.5"/>
+				  <ellipse cx="395" cy="387.5" rx="6" ry="5.5"/>
+				  <ellipse cx="826" cy="175.5" rx="6" ry="5.5"/>
+				  <ellipse cx="626" cy="286.5" rx="6" ry="5.5"/>
+				  <ellipse cx="887" cy="598.5" rx="6" ry="5.5"/>
+			   </g>
+		    </g>
+		    <g fill="#FFF" fill-opacity=".3" transform="translate(65 63)">
+			   <g id="snow-top-layer">
+				  <circle cx="8" cy="776" r="8"/>
+				  <circle cx="189" cy="925" r="8"/>
+				  <circle cx="548" cy="844" r="8"/>
+				  <circle cx="685" cy="1115" r="8"/>
+				  <circle cx="858" cy="909" r="8"/>
+				  <circle cx="874" cy="1438" r="8" transform="rotate(180 874 1438)"/>
+				  <circle cx="657" cy="1256" r="8" transform="rotate(180 657 1256)"/>
+				  <circle cx="443" cy="1372" r="8" transform="rotate(180 443 1372)"/>
+				  <circle cx="339" cy="1107" r="8" transform="rotate(180 339 1107)"/>
+				  <circle cx="24" cy="1305" r="8" transform="rotate(180 24 1305)"/>
+				  <circle cx="8" cy="8" r="8"/>
+				  <circle cx="189" cy="157" r="8"/>
+				  <circle cx="548" cy="76" r="8"/>
+				  <circle cx="685" cy="347" r="8"/>
+				  <circle cx="858" cy="141" r="8"/>
+				  <circle cx="874" cy="670" r="8" transform="rotate(180 874 670)"/>
+				  <circle cx="657" cy="488" r="8" transform="rotate(180 657 488)"/>
+				  <circle cx="443" cy="604" r="8" transform="rotate(180 443 604)"/>
+				  <circle cx="339" cy="339" r="8" transform="rotate(180 339 339)"/>
+				  <circle cx="24" cy="537" r="8" transform="rotate(180 24 537)"/>
+			   </g>
+		    </g>
+		</svg>
+    </div>
+	
+	<div class="hero__content">
+		
+	</div>
+
+</div>
+
+          <!-- sticky navbar -->
+
+
+<!-- text and icons section -->
+<br>
+
+<section style="position: relative;top: 80px;">
+	<div id="container">
+    <span id="text1"></span>
+    <span id="text2"></span>
+</div>
+
+<svg id="filters">
+    <defs>
+        <filter id="threshold">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 255 -140" />
+        </filter>
+    </defs>
+</svg>
+
+
+<script type="text/javascript">
+	const elts = {
+    text1: document.getElementById("text1"),
+    text2: document.getElementById("text2")
+};
+
+const texts = [
+    "HOPE",
+    "Reality",
+    "progress",
+    "BRAND",
+    "SKILLS",
+    "IPHONE IS",
+    "Love",
+    ":)",
+  
+];
+
+const morphTime = 1;
+const cooldownTime = 0.25;
+
+let textIndex = texts.length - 1;
+let time = new Date();
+let morph = 0;
+let cooldown = cooldownTime;
+
+elts.text1.textContent = texts[textIndex % texts.length];
+elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+
+function doMorph() {
+    morph -= cooldown;
+    cooldown = 0;
+
+    let fraction = morph / morphTime;
+
+    if (fraction > 1) {
+        cooldown = cooldownTime;
+        fraction = 1;
+    }
+
+    setMorph(fraction);
+}
+
+function setMorph(fraction) {
+    elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+    fraction = 1 - fraction;
+    elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+    elts.text1.textContent = texts[textIndex % texts.length];
+    elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+}
+
+function doCooldown() {
+    morph = 0;
+
+    elts.text2.style.filter = "";
+    elts.text2.style.opacity = "100%";
+
+    elts.text1.style.filter = "";
+    elts.text1.style.opacity = "0%";
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    let newTime = new Date();
+    let shouldIncrementIndex = cooldown > 0;
+    let dt = (newTime - time) / 1000;
+    time = newTime;
+
+    cooldown -= dt;
+
+    if (cooldown <= 0) {
+        if (shouldIncrementIndex) {
+            textIndex++;
+        }
+
+        doMorph();
+    } else {
+        doCooldown();
+    }
+}
+
+animate();
+</script>
+</section>
+
+
+<!-- our advantages section  -->
+<div class="container">
+  <h2 class="title">
+    <span class="title-word title-word-1">OUR</span>
+    <span class="title-word title-word-2">ADVANTAGES</span>
+    <span class="title-word title-word-3">OVER</span>
+    <span class="title-word title-word-4">OTHERS</span>
+  </h2>
+</div>
+<!-- text -->
+<div style="text-align: center;color: navy;position: relative;bottom:150px; "><p>The iPhone is a smartphone made by Apple that combines a computer,<br> iPod, digital camera and cellular phone into one device with a touchscreen,	<br> interface. The iPhone runs the iOS operating system, and in 2021 when the iPhone 13 was introduced,<br> it offered up to 1 TB of storage and a 12-megapixel camera.</p>
+</div>
+<br>
+<!-- hire me -->
+ 
+<!-- icons section starts from here -->
+<div class="icons-parent">
+
+   <div class="icon-child1"><i class="fa fa-lightbulb-o set"></i>
+      <h2>Innovation</h2>
+      <p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+   </div>
+
+   <div class="icon-child2"><i class="fa fa-thumbs-o-up set"></i>
+      <h2>Quality</h2>
+      <p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+   </div>
+
+<div class="icon-child3"><i class="fa fa-group set"></i>
+      <h2>Happy Clients</h2>
+      <p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+   </div>
+
+<div class="icon-child4"><i class="material-icons set" style="font-size: 100px;">message</i>
+      <h2>Innovation</h2>
+      <p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+   </div>
+
+   <div class="icon-child5"><i class="fa fa-clock-o set"></i>
+      <h2>Experience</h2>
+      <p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+   </div>
+
+</div>
+
+<!-- gray backgound work -->
+<div class="gray-parent">
+	 <h1 class="gray-h">ABOUT</h1>
+	<div class="gray-child1"><p>Lorem ipsum, or lipsum as it is sometimes known, <br>is dummy text used in laying out print, graphic or web designs.<br> The passage is attributed to an unknown ...<br>
+Lorem ipsum, or lipsum as it is sometimes<br> known, is dummy text used in laying out <br>print, graphic or web designs. The passage is attributed to an unknown ...<br>
+Lorem ipsum, or lipsum as it is sometimes known,<br> is dummy text used in laying out print,<br> graphic or web designs. The passage is attributed to an unknown ...
+<br>
+<br>
+  <button style="font-size: 40px;background-color: gold;">read more</button>
+</div>
+ <div class="gray-child2">
+ 	<img style="position: relative;bottom:100px; " src="10586.jpg" width="600px;" height="500px;">
+ </div>
+
+</div>
+
+
+
+<!-- OUR SERVICES TEXT -->
+<div  class="container">
+  <h2 class="title">
+    <span class="title-word title-word-1">OUR</span>
+    <span class="title-word title-word-2">SERVICES</span>
+    
+  </h2>
+ 
+</div>
+ <div style="text-align: center;color: navy;position: relative;bottom:150px; "><p>The iPhone is a smartphone made by Apple that combines a computer,<br> iPod, digital camera and cellular phone into one device with a touchscreen,	<br> interface.n 2021 when the iPhone 13 was introduced,<br> it offered up to 1 TB of storage and a 12-megapixel camera.</p>
+
+</div>
+<!-- icons stars section starts from here -->
+<div class="star-parent">
+	<div class="star-child1 "><i class="fa fa-star star-set"></i>
+	<h1>WEB DESIGN</h1>
+	<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+	<a style="color: #7cfc00;font-size:20px; " href="#">read more</a>
+     </div>
+     <div class="star-child2 "><i class="fa fa-star star-set"></i>
+	<h1>GRAPHIC DESIGN</h1>
+	<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+	<a style="color: #7cfc00;font-size:20px; " href="#">read more</a>
+     </div>
+     <div class="star-child3 "><i class="fa fa-star star-set"></i>
+	<h1>BRANDING</h1>
+	<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+	<a style="color: #7cfc00;font-size:20px; " href="#">read more</a>
+     </div>
+     <div class="star-child4 "><i class="fa fa-star star-set"></i>
+	<h1>MARKETING</h1>
+	<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+	<a style="color: #7cfc00;font-size:20px; " href="#">read more</a>
+     </div>
+
+</div>
+<!-- sticky navbar -->
+  <ul>
+			<li style="--i:6;"><a href="#">Home</a></li>
+			<li style="--i:5;"><a href="#">About</a></li>
+			<li style="--i:4;"><a href="#">Services</a></li>
+			<li style="--i:3;"><a href="#">Portfolio</a></li>
+			<li style="--i:2;"><a href="#">Our Team</a></li>
+			<li style="--i:1;"><a href="#">Contact</a></li>
+		</ul>
+
+      
+
+<!--OUR PORTFLIO  -->
+<section class="section-port">
+
+	<div>
+		<h1 class="port">OUR</h1>
+		<p>The iPhone is a smartphone made by Apple that combines a computer,<br> iPod, digital camera and cellular phone into one device with a touchscreen,	<br> interface.n 2021 when the iPhone 13 was introduced,<br> it offered up to 1 TB of storage and a 12-megapixel camera.</p>
+   	</div>
+   	<br>
+   	<div class="little-navbar">
+   		<div class="little1 lit-1">WEB DESIGN</div>
+   		<div class="little2 lit-1">GRAPHIC DESIGN</div>
+   		<div class="little3 lit-1">BRANDING</div>
+   		<div class="little4 lit-1">MARKETING</div>
+   		<div class="little5 lit-1">LOGO</div>
+   		<div class="little6 lit-1">ADVERTISEMENT</div>
+   	</div>
+   	<br>
+
+   	<div class="pics-parent">
+   		<div class="pics-child1">
+   			<img class="img" src="horse1.jpg">
+   		</div>
+   		<div class="pics-child2">
+   			<img class="img" src="tree12.jpg">
+   		</div>
+   		<div class="pics-child3">
+   			<img class="img" src="mind1.jpg">
+   		</div>
+   		<div class="pics-child4">
+   			<img class="img" src="team1.jpg">
+   		</div>
+   		<div class="pics-child5">
+   			<img class="img" src="flower1.jpg">
+   		</div>
+   		<div class="pics-child6">
+   			<img class="img" src="rhino.jpg">
+   		</div>
+   		<div class="pics-child7">
+   			<img class="img" src="digi.jpg">
+   		</div>
+   		<div class="pics-child8">
+   			<img class="img" src="lion.png">
+   		</div>
+   		<div class="pics-child9">
+   			<img class="img" src="social.jpg">
+   		</div>
+   		<div class="pics-child10">
+   			<img class="img" src="mustang2.jpg">
+   		</div>
+      
+     	</div>
+</section>
+  <!-- our process sectoion starts from here -->
+  <div class="our-parent">
+    <div>
+    	<h1 class="our-h1">OUR</h1>
+    	<p style="color: #A9A9A9;">The iPhone is a smartphone made by Apple that combines a computer,<br> iPod, digital camera and cellular phone into one device with a touchscreen,	<br> interface.n 2021 when the iPhone 13 was introduced,<br> it offered up to 1 TB of storage and a 12-megapixel camera.</p>
+
+    </div>
+
+  </div>
+
+  <!-- icons request call sections starts from here -->
+ <div class="request-parent">
+ 	<div class="req-child1">
+ 		<i class="material-icons set" style="font-size:100px;color:darkgreen">phonelink_setup</i>
+ 		<h1>Request call</h1>
+ 		<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+ 	</div>
+ 	<div class="req-child2">
+ 		<i class="material-icons set" style="font-size:100px;color:darkgreen">message</i>
+ 		<h1>Consultation</h1>
+ 		<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+ 	</div>
+ 	<div class="req-child3">
+ 		<i class="fa fa-sitemap set" style="font-size:100px;color:darkgreen;"></i>
+ 		<h1>Planning</h1>
+ 		<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+ 	</div>
+ 	<div class="req-child4">
+ 		<i class="fa fa-cogs set" style="font-size:100px;color:darkgreen"></i>
+ 		<h1>Work Process</h1>
+ 		<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+ 	</div>
+ 	<div class="req-child5">
+ 		<i class="fa fa-pencil set" style="font-size:100px;color:darkgreen;"></i>
+ 		<h1>Correcting</h1>
+ 		<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+ 	</div>
+ 	<div class="req-child6">
+ 		<i class="fa fa-check set" style="font-size:100px;color:darkgreen"></i>
+ 		<h1>Deliver</h1>
+ 		<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+ 	</div>
+ </div>
+ <hr>
+ <!-- people about us -->
+ <section style="width:100%;height:700px; background-color:#f2f3f4  ">
+ 	<div style="text-align: center;">
+ 		<h1 class="people">PEOPLE</h1>
+ 		<p style="color:#A9A9A9">Lorem ipsum, or lipsum<br> as it is sometimes known,<br>  dummy text used in</p>
+ 	</div>
+ 	<!--  -->
+
+ 	<div class="people-parent">
+ 		<div class="childp1">
+ 		<div style="display: inline-block;margin-left:10px; ">
+ 		<i class="material-icons set" style="font-size:100px;color:#696969;">person</i></div>
+
+ 		<div style="display: inline-block;height:100px;margin:10px;  "> 
+ 		<h1>JHON DOE</h1>
+ 		    	<p style="color: #A9A9A9;">The iPhone is a smartphone made by Apple that combines a computer,<br> iPod, digital camera and cellular phone into one device with a touchscreen,	<br> interface.n 2021 when the iPhone 13 was introduced,<br> it offered up to 1 TB of storage and a 12-megapixel camera.</p>
+        </div>	
+    </div>
+      <div class="childp2">
+ 		<div style="display: inline-block;margin-left:10px; ">
+ 		<i class="material-icons set" style="font-size:100px;color:#696969;">person</i></div>
+
+ 		<div style="display: inline-block;height:100px;margin:10px;  "> 
+ 		<h1>JHON DOE</h1>
+ 		    	<p style="color: #A9A9A9;">The iPhone is a smartphone made by Apple that combines a computer,<br> iPod, digital camera and cellular phone into one device with a touchscreen,	<br> interface.n 2021 when the iPhone 13 was introduced,<br> it offered up to 1 TB of storage and a 12-megapixel camera.</p>
+        </div>	
+    </div>
+    <div class="childp3">
+ 		<div style="display: inline-block;margin-left:10px; ">
+ 		<i class="material-icons set" style="font-size:100px;color:#696969;">person</i></div>
+
+ 		<div style="display: inline-block;height:100px;margin:10px;  "> 
+ 		<h1>JHON DOE</h1>
+ 		    	<p style="color: #A9A9A9;">The iPhone is a smartphone made by Apple that combines a computer,<br> iPod, digital camera and cellular phone into one device with a touchscreen,	<br> interface.n 2021 when the iPhone 13 was introduced,<br> it offered up to 1 TB of storage and a 12-megapixel camera.</p>
+        </div>	
+    </div>
+    <div class="childp4">
+ 		<div style="display: inline-block;margin-left:10px; ">
+ 		<i class="material-icons set" style="font-size:100px;color:#696969;">person</i></div>
+
+ 		<div style="display: inline-block;height:100px;margin:10px;  "> 
+ 		<h1>JHON DOE</h1>
+ 		    	<p style="color: #A9A9A9;">The iPhone is a smartphone made by Apple that combines a computer,<br> iPod, digital camera and cellular phone into one device with a touchscreen,	<br> interface.n 2021 when the iPhone 13 was introduced,<br> it offered up to 1 TB of storage and a 12-megapixel camera.</p>
+        </div>	
+    </div>
+
+
+ 	</div>
+
+ </section>
+
+
+ <!-- progress bar section starts from here -->
+ 	<section class="body8">
+	<div class="container12">
+			<div class="card">
+				<div class="percent" style="--clr:#04fc43;--num:85;">
+					<div class="dot"></div>
+					<svg>
+						<circle cx="70" cy="70" r="70"></circle>
+						<circle cx="70" cy="70" r="70"></circle>
+					</svg>
+					<div class="number">
+						<h2>85<span>%</span></h2>
+						<p class="p">QUALITY</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="percent" style="--clr:#fee800;--num:72;">
+					<div class="dot"></div>
+					<svg>
+						<circle cx="70" cy="70" r="70"></circle>
+						<circle cx="70" cy="70" r="70"></circle>
+					</svg>
+					<div class="number">
+						<h2>72<span>%</span></h2>
+						<p class="p">DEDICATION</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="percent" style="--clr:#ff00be;--num:60;">
+					<div class="dot"></div>
+					<svg>
+						<circle cx="70" cy="70" r="70"></circle>
+						<circle cx="70" cy="70" r="70"></circle>
+					</svg>
+					<div class="number">
+						<h2>60<span>%</span></h2>
+						<p class="p">FEARLESS</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="percent" style="--clr:#06ccff;--num:95;">
+					<div class="dot"></div>
+					<svg>
+						<circle cx="70" cy="70" r="70"></circle>
+						<circle cx="70" cy="70" r="70"></circle>
+					</svg>
+					<div class="number">
+						<h2>95<span>%</span></h2>
+						<p class="p">BRAND</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<!-- iphone sections starts from here -->
+		<section class="body10">
+<div class="card12">
+		<div class="circle" style="--clr:#f40103;">
+			<img src="ilogo1.png" class="logo">
+		</div>
+		<div class="content">
+			<h1 class="h-2">IPHONE 13</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<a class="a2" href="#">Explore</a>
+		</div>
+		<img src="4.png" class="product_img">
+	</div>
+	<div class="card12">
+		<div class="circle" style="--clr:#02953a">
+			<img src="ilogo1.png" class="logo">
+		</div>
+		<div class="content">
+			<h1 class="h-2">IPHONE 13 PRO</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<a class="a2" href="#">Explore</a>
+		</div>
+		<img src="5.png" class="product_img">
+	</div>
+
+</section>
+
+
+<!-- hire me section -->
+<section class="bodysection">
+<div class="container-s">
+		<div class="box-s">
+			<div class="content-s">
+				<img class="img-s" src="shahan1.jpg">
+				<h2 class="h2-s">Someone Famous<br><span class=".span"> UX/UI Designer</span></h2>
+				<a class="as" href="#">Hire me</a>
+			</div>
+		</div>
+	</div>
+	</section>
+	<!-- footer -->
+	<div class="vector-parent">
+	<div class="vector-child1">
+		<h1>99% CLOUD<br>hosting in one platform</h1>
+		<p>the readable content of a page when looking at its layout.<br> The point of using Lorem Ipsum is that it has a more-<br> distribution of letters, as opposed to using 'Content here,<br> content here', making it look like readable English<br>.Many desktop publishing packages and web page </p>
+		<button class="button3">READ MORE</button>
+	</div>
+	<div class="vector-child2">
+		<img src="vector5.jpg" style="width:600px;height:400px;background-size: cover;  ">
+	</div>
+	<div class="vector-child3">
+		<img src="vector2.jpg" style="width: 600px;height:400px;background-size: cover; ">
+	</div>
+	<div class="vector-child4">
+		<h1>99% CLOUD<br>hosting in one platform</h1>
+		<p>the readable content of a page when looking at its layout.<br> The point of using Lorem Ipsum is that it has a more-<br> distribution of letters, as opposed to using 'Content here,<br> content here', making it look like readable English<br>.Many desktop publishing packages and web page </p>
+		<button  class="button3">READ MORE</button>
+	</div>
+
+</div>
+
+</body>
+</html>
